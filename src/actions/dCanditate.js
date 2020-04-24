@@ -1,3 +1,5 @@
+import api from "./api";
+
 export const ACTION_TYPES = {
   CREATE: "CREATE",
   UPDATE: "UPDATE",
@@ -6,8 +8,14 @@ export const ACTION_TYPES = {
 };
 
 export const fetchAll = () => (dispatch) => {
-  dispatch({
-    type: ACTION_TYPES.FETCH_ALL,
-    payload: [],
-  });
+  api
+    .dCanditate()
+    .fetchAll()
+    .then((repsonse) => {
+      dispatch({
+        type: ACTION_TYPES.FETCH_ALL,
+        payload: Response.data,
+      });
+    })
+    .catch((err) => console.log(err));
 };

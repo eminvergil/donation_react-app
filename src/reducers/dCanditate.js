@@ -4,7 +4,7 @@ const initialState = {
   list: [],
 };
 
-export const dCanditate = (state = initialState.action) => {
+export const dCanditate = (state = initialState, action) => {
   switch (action.type) {
     case ACTION_TYPES.FETCH_ALL:
       return {
