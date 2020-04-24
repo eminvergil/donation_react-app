@@ -11,10 +11,10 @@ export const fetchAll = () => (dispatch) => {
   api
     .dCanditate()
     .fetchAll()
-    .then((repsonse) => {
+    .then((response) => {
       dispatch({
         type: ACTION_TYPES.FETCH_ALL,
-        payload: Response.data,
+        payload: response.data,
       });
     })
     .catch((err) => console.log(err));
